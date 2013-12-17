@@ -13,8 +13,8 @@ app.configure(function() {
   app.use(express.methodOverride());
 });
 
-app.listen(3000);
-console.log("App ouvindo na porta 3000");
+app.listen(8080);
+console.log("App ouvindo na porta 8080");
 
 var Todo = mongoose.model('Todo', {
   text : String
@@ -23,7 +23,7 @@ var Todo = mongoose.model('Todo', {
 mongoose.connect('mongodb://localhost/test');
 
 //routes API
-app.get('api/todos', function(req, res) {
+app.get('/api/todos', function(req, res) {
   Todo.find(function(err, todos) {
     if (err) {
       res.send(err);
